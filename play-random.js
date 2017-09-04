@@ -90,7 +90,6 @@ var runner = this.runner || {};
     };
 
     r.run = function (ai, delay) {
-        var d = delay || 100;
-        play(chess, ai, black, d);
+        play(chess, ai, black, delay);
     };
 }(runner));
