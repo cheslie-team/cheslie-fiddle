@@ -9,7 +9,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "connect": "^3.6.3",
-    "serve-static": "^1.12.4"
+    "st": "^1.2.0"
   }
 }

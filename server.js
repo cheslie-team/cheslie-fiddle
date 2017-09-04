@@ -1,7 +1,13 @@
-var connect = require('connect'),
-	serveStatic = require('serve-static'),
+var st = require('st'),
+	http = require('http'),
 	port = process.env.PORT || 8080;
 
-connect().use(serveStatic(__dirname)).listen(port, function() {
-    console.log('Server running on ' + );
-});
+http.createServer(
+  st({
+   path: process.cwd(),
+   cors: true
+  })
+).listen(port);
+
+console.log('Server running on ' + port);
+
