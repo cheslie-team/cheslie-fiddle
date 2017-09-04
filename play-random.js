@@ -52,7 +52,7 @@ var runner = this.runner || {};
         return 'Draw since the game lasted over 100 moves';
     };
 
-    var doMove = function (chess, white, black, move, deleay) {
+    var doMove = function (chess, white, black, move, delay) {
         chess.move(move);
 
         if (!board) {
@@ -64,10 +64,10 @@ var runner = this.runner || {};
         
         setTimeout(function () {
             play(chess, white, black);
-        }, deleay);
+        }, delay);
     };
 
-    var play = function (chess, white, black, deleay) {
+    var play = function (chess, white, black, delay) {
         if (chess.game_over()) {
             console.log(reason(chess));
             return;
@@ -81,15 +81,15 @@ var runner = this.runner || {};
             doMove(chess, white, black, move);
         } else {
             move.then(function (move) {
-                doMove(chess, white, black, move, deleay);
+                doMove(chess, white, black, move, delay);
             }).catch(function (err) {
                 console.log(err.error);
-                doMove(chess, white, black, err.move, deleay);
+                doMove(chess, white, black, err.move, delay);
             });        
         }    
     };
 
-    r.run = function (ai, deleay) {
+    r.run = function (ai, delay) {
         d = delay || 100;
         play(chess, ai, black, d);
     };
