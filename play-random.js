@@ -63,7 +63,7 @@ var runner = this.runner || {};
         console.log(unicode(chess.ascii() + '\n\r K = White, k = ') + 'Black');
         
         setTimeout(function () {
-            play(chess, white, black);
+            play(chess, white, black, delay);
         }, delay);
     };
 
