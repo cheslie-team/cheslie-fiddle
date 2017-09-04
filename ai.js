@@ -4,8 +4,6 @@ var ai = this.ai || {};
 // var endgamer = require('./sample-players/endgamer.js');
 // var minmaxer = require('./sample-players/minmaxer.js');
 
-ai.playRandom = true;
-
 ai.name = 'Tørrfisk - ' + Math.floor(Math.random() * 1000);
 
 // rnd-jesus.js
@@ -16,3 +14,6 @@ ai.move = function (board) {
 
     return move;
 };
+
+runner.run(ai);
+game.connect(ai);

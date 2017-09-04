@@ -1,8 +1,7 @@
 var runner = this.runner || {};
 
 (function (r) {
-    var white = ai,
-        black = samplePlayers.rndJesus,
+    var black = samplePlayers.rndJesus,
         // black = samplePlayers.endgamer,
         // black = samplePlayers.minmaxer,
         chess = new Chess(),
@@ -83,7 +82,7 @@ var runner = this.runner || {};
         }    
     };
 
-    r.run = function () {
-        play(chess, white, black);
+    r.run = function (ai) {
+        play(chess, ai, black);
     };
 }(runner));
