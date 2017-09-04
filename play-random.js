@@ -78,7 +78,7 @@ var runner = this.runner || {};
             move = player.move(board);
 
         if (typeof move === "string") {
-            doMove(chess, white, black, move);
+            doMove(chess, white, black, move, delay);
         } else {
             move.then(function (move) {
                 doMove(chess, white, black, move, delay);
