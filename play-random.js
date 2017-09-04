@@ -19,7 +19,8 @@ var runner = this.runner || {};
             'b': '\u265D',
             'n': '\u265E',
             'p': '\u265F'
-        };
+        },
+        board;
 
     var unicode = function (ascii) {
         if (!SUPPORT_UNICODE) {
@@ -53,6 +54,12 @@ var runner = this.runner || {};
 
     var doMove = function (chess, white, black, move) {
         chess.move(move);
+
+        if (!board) {
+            board = ChessBoard('board');
+        }
+
+        board.position(chess.fen());
         console.log(unicode(chess.ascii() + '\n\r K = White, k = ') + 'Black');
         
         setTimeout(function () {
