@@ -42,7 +42,7 @@ var samplePlayers = {
                     return Math.random() * 200 - 100;
                 };
 
-            return deepening.move(board, depth, score, span);
+            return modules.deepening(board, depth, score, span);
         }
     }
 };
