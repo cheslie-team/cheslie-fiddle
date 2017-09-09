@@ -1,7 +1,7 @@
 var game = {
     connect: function (ai) {
         var gameIo = io('https://cheslie-game.azurewebsites.net'),
-            tournamentIo = io('http://cheslie-tourney.azurewebsites.net'),
+            tournamentIo = io('https://cheslie-tourney.azurewebsites.net'),
             name = ai.name;
 
         tournamentIo.on('connect', function () {
