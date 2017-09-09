@@ -1,7 +1,18 @@
 var game = {
     connect: function (ai) {
         var gameIo = io('https://cheslie-game.azurewebsites.net'),
+            tournamentIo = io('http://cheslie-tourney.azurewebsites.net'),
             name = ai.name;
+
+        tournamentIo.on('connect', function () {
+            console.log('Player ' + name + ' is connected to cheslie-tourney');
+            tournamentIo.emit('enter', name);
+        });
+
+        tournamentIo.on('join', function (gameId) {
+            console.log('Player is joining game: ' + gameId);
+            game.emit('join', gameId, name);
+        });
 
         gameIo.on('connect', function () {
             console.log('Player ' + name + ' is connected to game');
