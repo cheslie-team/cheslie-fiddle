@@ -1,5 +1,5 @@
-var samplePlayers = {
-    rndJesus: {
+var SamplePlayers = {
+    RndJesus: {
         move: function (board) {
             var chess = new Chess(board),
                 moves = chess.moves(),
@@ -8,19 +8,19 @@ var samplePlayers = {
             return move;
         }
     },
-    endgamer: {
+    Endgamer: {
         move: function (board) {
             var chess = new Chess(board);
 
-            if (chess.number_of_pieces() <= 5) {
+            if (chess.numberOfPieces() <= 5) {
                 // This will return a promise
-                return modules.endgame(board);
+                return Modules.endgame(board);
             } else {
-                return samplePlayers.rndJesus.move(board);
+                return SamplePlayers.rndJesus.move(board);
             }
         }
     },
-    minmaxer: {
+    Minmaxer: {
         move: function (board) {
             var depth = 2,
                 score = function (chess) {
@@ -29,10 +29,10 @@ var samplePlayers = {
                     return Math.random() * 200 - 100;
                 };
 
-            return modules.minmax(board, depth, score);
+            return Modules.minmax(board, depth, score);
         }
     },
-    decender: {
+    Decender: {
         move: function (board) {
                 var depth = 3,
                 span = 6,
@@ -42,7 +42,7 @@ var samplePlayers = {
                     return Math.random() * 200 - 100;
                 };
 
-            return modules.deepening(board, depth, score, span);
+            return Modules.deepening(board, depth, score, span);
         }
     }
 };

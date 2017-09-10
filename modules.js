@@ -1,4 +1,4 @@
-var modules = this.modules || {};
+var Modules = this.Modules || {};
 
 (function (mod) {
     var minOrMax = function (a, b, maximizing) {
@@ -62,7 +62,7 @@ var modules = this.modules || {};
     mod.minmax = function (board, depth, score) {
         return minmax(board, score, depth).move;
     };
-}(modules));
+}(Modules));
 
 (function (mod) {
     var minOrMax = function (a, b, maximizing) {
@@ -141,7 +141,7 @@ var modules = this.modules || {};
     mod.deepening = function (board, depth, score, span) {
         return deepening(board, score, depth, span).move;
     };
-}(modules));
+}(Modules));
 
 (function (mod) {
     var getEndgameMove = function (board) {
@@ -197,4 +197,4 @@ var modules = this.modules || {};
         return getEndgameMove(board);
     };
 
-}(modules));
+}(Modules));

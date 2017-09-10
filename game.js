@@ -1,4 +1,4 @@
-var game = {
+var Tournament = {
     connect: function (ai) {
         var gameIo = io('https://cheslie-game.azurewebsites.net'),
             tournamentIo = io('https://cheslie-tourney.azurewebsites.net'),

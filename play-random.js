@@ -1,9 +1,9 @@
-var runner = this.runner || {};
+var Runner = this.Runner || {};
 
 (function (r) {
-    var black = samplePlayers.rndJesus,
-        // black = samplePlayers.endgamer,
-        // black = samplePlayers.minmaxer,
+    var black = SamplePlayers.rndJesus,
+        // black = SamplePlayers.endgamer,
+        // black = SamplePlayers.minmaxer,
         chess = new Chess(),
         SUPPORT_UNICODE = true,
         unicodeMap = {
@@ -92,4 +92,4 @@ var runner = this.runner || {};
     r.run = function (ai, delay) {
         play(chess, ai, black, delay);
     };
-}(runner));
+}(Runner));
