@@ -16,7 +16,7 @@ var SamplePlayers = {
                 // This will return a promise
                 return Modules.endgame(board);
             } else {
-                return SamplePlayers.rndJesus.move(board);
+                return SamplePlayers.RndJesus.move(board);
             }
         }
     },

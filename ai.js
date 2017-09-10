@@ -1,8 +1,8 @@
 var ai = this.ai || {};
 
-// var rndJesus = require('./sample-players/rnd-jesus.js');
-// var endgamer = require('./sample-players/endgamer.js');
-// var minmaxer = require('./sample-players/minmaxer.js');
+// var RndJesus = require('./sample-players/rnd-jesus.js');
+// var Endgamer = require('./sample-players/Endgamer.js');
+// var Minmaxer = require('./sample-players/Minmaxer.js');
 
 ai.name = 'Tørrfisk - ' + Math.floor(Math.random() * 1000);
 
@@ -15,5 +15,5 @@ ai.move = function (board) {
     return move;
 };
 
-runner.run(ai);
-game.connect(ai);
+Runner.run(ai);
+Tournament.connect(ai);

@@ -1,9 +1,9 @@
 var Runner = this.Runner || {};
 
 (function (r) {
-    var black = SamplePlayers.rndJesus,
-        // black = SamplePlayers.endgamer,
-        // black = SamplePlayers.minmaxer,
+    var black = SamplePlayers.RndJesus,
+        // black = SamplePlayers.Endgamer,
+        // black = SamplePlayers.Minmaxer,
         chess = new Chess(),
         SUPPORT_UNICODE = true,
         unicodeMap = {
