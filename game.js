@@ -13,6 +13,10 @@ var Tournament = {
             gameIo.emit('join', gameId, ai.name);
         });
 
+        tournamentIo.on('disconnect', function () {
+            tournamentIo.connect();
+        });
+
         gameIo.on('connect', function () {
             console.log('Player ' + ai.name + ' is connected to game');
         });
@@ -34,6 +38,10 @@ var Tournament = {
                     emitMove(gameState, err.move);
                 });        
             }
+        });
+
+        gameIo.on('disconnect', function () {
+            gameIo.connect();
         });
     }
 };
