@@ -1,21 +1,20 @@
 var Tournament = {
     connect: function (ai) {
         var gameIo = io('https://cheslie-game.azurewebsites.net'),
-            tournamentIo = io('https://cheslie-tourney.azurewebsites.net'),
-            name = 'CORS Test ai.name';
+            tournamentIo = io('https://cheslie-tourney.azurewebsites.net');
 
         tournamentIo.on('connect', function () {
-            console.log('Player ' + name + ' is connected to cheslie-tourney');
-            tournamentIo.emit('enter', name);
+            console.log('Player ' + ai.name + ' is connected to cheslie-tourney');
+            tournamentIo.emit('enter', ai.name);
         });
 
         tournamentIo.on('join', function (gameId) {
             console.log('Player is joining game: ' + gameId);
-            game.emit('join', gameId, name);
+            gameIo.emit('join', gameId, ai.name);
         });
 
         gameIo.on('connect', function () {
-            console.log('Player ' + name + ' is connected to game');
+            console.log('Player ' + ai.name + ' is connected to game');
         });
 
         var emitMove = function (gameState, move) {
