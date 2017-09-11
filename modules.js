@@ -87,9 +87,15 @@ var Modules = this.Modules || {};
         return exploreChildren(board, moves, depth, span, maximizing, score, v);
     };
 
-    var firstInteresting = function (moves, score, n) {
-        var interesting = moves.map(function (move) {
-                return {score: score(move), move: move};
+    var firstInteresting = function (node, score, n) {
+        var interesting = node.moves()
+            .map(function (move) {
+                var c = new Chess(node.fen());
+                c.move(move);
+                return {chess: c, move: move};
+            })
+            .map(function (chessmove) {
+                return {score: score(chessmove.chess), move: chessmove.move};
             })
             .sort(function (a, b) {
                 if (a.score < b.score) return -1;
