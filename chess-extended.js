@@ -1,7 +1,10 @@
 var _Chess = Chess;
 
 var Chess = function (fen) {
-    var chess = new _Chess(fen);
+    var chess = new _Chess(fen),
+        numberOfMoves = 0,
+        _move = chess.move,
+        _game_over = chess.game_over;
     
     chess.pieces = function (color) {
         var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'],
@@ -29,6 +32,16 @@ var Chess = function (fen) {
 
     chess.movesInformaton = function () {
         return chess.moves({ verbose: true });
+    };
+
+    chess.move = function (arg) {
+        numberOfMoves++;
+        _move(arg);
+    };
+
+    chess.game_over = function () {
+        return numberOfMoves >= 100
+            || _game_over();
     };
 
     return chess;
