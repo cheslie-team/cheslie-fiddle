@@ -134,7 +134,7 @@ var Modules = this.Modules || {};
             return { score: score(node), move: child };
         }
 
-        var interestingMoves = firstInteresting(node.moves(), score, span);
+        var interestingMoves = firstInteresting(node, score, span);
         var v = exploreChildren(node.fen(), interestingMoves, depth, span, maximizing, score, maximizing ? loosing : winning);
         
         return { score: v.score, move: child ? child : v.move };
