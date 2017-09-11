@@ -2,7 +2,7 @@ var Tournament = {
     connect: function (ai) {
         var gameIo = io('https://cheslie-game.azurewebsites.net'),
             tournamentIo = io('https://cheslie-tourney.azurewebsites.net'),
-            name = ai.name;
+            name = 'CORS Test ai.name';
 
         tournamentIo.on('connect', function () {
             console.log('Player ' + name + ' is connected to cheslie-tourney');
