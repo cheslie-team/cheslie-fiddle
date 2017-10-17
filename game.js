@@ -10,7 +10,18 @@ var Tournament = {
 
         tournamentIo.on('join', function (gameId) {
             console.log('Player is joining game: ' + gameId);
-            gameIo.emit('join', gameId, ai.name);
+            if (gameIo.connected) {
+                gameIo.emit('join', gameId, ai.name);
+            } else {
+                tournamentIo.emit('leave');
+                gameIo.connect();
+            }
+        });
+
+        tournamentIo.on('reconnect', function () {
+            if (gameIo.connected) {
+                tournamentIo.emit('enter', ai.name);
+            }
         });
 
         tournamentIo.on('disconnect', function () {
@@ -18,6 +29,9 @@ var Tournament = {
         });
 
         gameIo.on('connect', function () {
+            if (tournamentIo.connected) {
+                tournamentIo.emit('enter', ai.name);
+            }
             console.log('Player ' + ai.name + ' is connected to game');
         });
 
@@ -41,6 +55,7 @@ var Tournament = {
         });
 
         gameIo.on('disconnect', function () {
+            tournamentIo.emit('leave');
             gameIo.connect();
         });
     }
